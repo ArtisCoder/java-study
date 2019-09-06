@@ -1,7 +1,7 @@
 package com.wjg.shirot2.service.impl;
 
-import com.wjg.entity.UserInfo;
-import com.wjg.repository.UserInfoRepository;
+import com.wjg.shirot2.entity.UserInfo;
+import com.wjg.shirot2.repository.UserInfoRepository;
 import com.wjg.shirot2.service.UserInfoService;
 import org.springframework.stereotype.Service;
 

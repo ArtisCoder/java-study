@@ -1,6 +1,6 @@
-package com.wjg.repository;
+package com.wjg.shirot2.repository;
 
-import com.wjg.entity.UserInfo;
+import com.wjg.shirot2.entity.UserInfo;
 import org.springframework.data.repository.CrudRepository;
 
 /**

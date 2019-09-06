@@ -46,7 +46,7 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setSuccessUrl("/index");
 //        shiroFilterFactoryBean.setUnauthorizedUrl("/403"); //这里设置403并不会起作用，参考http://www.jianshu.com/p/e03f5b54838c
 
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+       // shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
 

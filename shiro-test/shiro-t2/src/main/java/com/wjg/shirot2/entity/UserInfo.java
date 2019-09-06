@@ -1,4 +1,4 @@
-package com.wjg.entity;
+package com.wjg.shirot2.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

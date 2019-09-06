@@ -1,8 +1,8 @@
 package com.wjg.shirot2.conf;
 
-import com.wjg.entity.SysPermission;
-import com.wjg.entity.SysRole;
-import com.wjg.entity.UserInfo;
+import com.wjg.shirot2.entity.SysPermission;
+import com.wjg.shirot2.entity.SysRole;
+import com.wjg.shirot2.entity.UserInfo;
 import com.wjg.shirot2.service.UserInfoService;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

@@ -1,6 +1,6 @@
-package com.wjg.repository;
+package com.wjg.shirot2.repository;
 
-import com.wjg.entity.SysRole;
+import com.wjg.shirot2.entity.SysRole;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;

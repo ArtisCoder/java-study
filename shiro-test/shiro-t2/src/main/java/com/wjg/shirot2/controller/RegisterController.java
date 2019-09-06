@@ -1,9 +1,9 @@
 package com.wjg.shirot2.controller;
 
-import com.wjg.entity.SysRole;
-import com.wjg.entity.UserInfo;
-import com.wjg.repository.SysRoleRepository;
-import com.wjg.repository.UserInfoRepository;
+import com.wjg.shirot2.entity.SysRole;
+import com.wjg.shirot2.entity.UserInfo;
+import com.wjg.shirot2.repository.SysRoleRepository;
+import com.wjg.shirot2.repository.UserInfoRepository;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

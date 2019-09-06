@@ -11,6 +11,7 @@
 
     <modules>
         <module>PostProcessor-ct</module>
+        <module>Advisor-t1</module>
     </modules>
 
     <dependencies>

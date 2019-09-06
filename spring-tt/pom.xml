@@ -12,6 +12,7 @@
     <modules>
         <module>PostProcessor-ct</module>
         <module>Advisor-t1</module>
+        <module>spring-t2</module>
     </modules>
 
     <dependencies>

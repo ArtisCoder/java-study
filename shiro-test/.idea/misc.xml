@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/shiro-t2/pom.xml" />
         <option value="$PROJECT_DIR$/shiro-t3-ssl/pom.xml" />
+        <option value="$PROJECT_DIR$/cas-clienta/pom.xml" />
       </list>
     </option>
   </component>

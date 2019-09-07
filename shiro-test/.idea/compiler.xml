@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cas-clienta" />
         <module name="shiro-common" />
         <module name="shiro-t2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cas-clienta" target="1.8" />
       <module name="shiro-common" target="1.8" />
       <module name="shiro-t2" target="1.8" />
       <module name="shiro-t2-ssl" target="1.8" />
@@ -20,6 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cas-clienta" options="-parameters" />
       <module name="shiro-common" options="-parameters" />
       <module name="shiro-t2" options="-parameters" />
       <module name="shiro-t2-ssl" options="-parameters" />

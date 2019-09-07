@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shiro-t2" />
         <module name="shiro-common" />
+        <module name="shiro-t2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="shiro-common" target="1.8" />
       <module name="shiro-t2" target="1.8" />
+      <module name="shiro-t2-ssl" target="1.8" />
       <module name="shiro-test" target="1.8" />
       <module name="shrio-t1" target="1.5" />
     </bytecodeTargetLevel>
@@ -21,6 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="shiro-common" options="-parameters" />
       <module name="shiro-t2" options="-parameters" />
+      <module name="shiro-t2-ssl" options="-parameters" />
     </option>
   </component>
 </project>

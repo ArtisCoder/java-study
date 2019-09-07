@@ -15,6 +15,9 @@ import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/*
+* shiro的核心是通过Filter来实现，通过URL规则来进行过滤和权限校验
+* */
 
 @Configuration
 public class ShiroConfiguration {
@@ -27,8 +30,9 @@ public class ShiroConfiguration {
 
         //验证码过滤器
         Map<String, Filter> filterMap = shiroFilterFactoryBean.getFilters();
-//        KaptchaFilter kaptchaFilter = new KaptchaFilter();
-//        filterMap.put("kaptchaFilter", kaptchaFilter);
+
+        filterMap.put("kaptchaFilter",  new KaptchaFilter());
+
         shiroFilterFactoryBean.setFilters(filterMap);
 
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
@@ -46,10 +50,14 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setSuccessUrl("/index");
 //        shiroFilterFactoryBean.setUnauthorizedUrl("/403"); //这里设置403并不会起作用，参考http://www.jianshu.com/p/e03f5b54838c
 
-       // shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
 
+
+    /*
+    * SecurityManager 是 Shiro 架构的核心，通过它来链接Realm和用户(文档中称之为Subject.)
+    * */
 
     @Bean
     public SecurityManager securityManager() {
@@ -67,6 +75,9 @@ public class ShiroConfiguration {
         return myShiroRealm;
     }
 
+    // 因为我们的密码是加过密的，所以，如果要Shiro验证用户身份的话，需要告诉它我们用的是md5加密的，并且是加密了两次。
+    // 同时我们在自己的Realm中也通过SimpleAuthenticationInfo返回了加密时使用的盐。这样Shiro就能顺利的解密密码
+    // 并验证用户名和密码是否正确了。
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
@@ -75,6 +86,10 @@ public class ShiroConfiguration {
         return hashedCredentialsMatcher;
     }
 
+    /*
+    * 开启shiro aop注解支持，判断controller中的接口访问是否有权限
+    *
+    * */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
@@ -84,7 +99,6 @@ public class ShiroConfiguration {
 
     @Bean
     public EhCacheManager ehCacheManager() {
-        System.out.println("ShiroConfiguration.getEhCacheManager()");
         EhCacheManager ehCacheManager = new EhCacheManager();
         ehCacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
         return ehCacheManager;

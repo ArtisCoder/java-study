@@ -25,8 +25,6 @@ public class MyShiroRealm extends AuthorizingRealm {
     @Resource
     private UserInfoService userInfoService;
 
-
-
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) {
 
@@ -60,6 +58,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
 
+        //获取用户对应的角色列表，再根据角色依次获取权限列表
         for (SysRole role: userInfo.getRoleList()) {
             authorizationInfo.addRole(role.getRole());
             for (SysPermission p: role.getPermissions()) {

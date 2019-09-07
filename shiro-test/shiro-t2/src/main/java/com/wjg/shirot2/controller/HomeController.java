@@ -1,5 +1,6 @@
 package com.wjg.shirot2.controller;
 
+import com.wjg.shirot2.conf.IncorrectCaptchaException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ public class HomeController {
         return "index";
     }
 
+    // 同时支持get和post请求
     @RequestMapping("/login")
     public String login(HttpServletRequest request, Map<String, Object> map) throws Exception {
 
@@ -36,15 +38,15 @@ public class HomeController {
 //        String exception = (String) request.getAttribute("shiroLoginFailure");
         String msg = "";
         if (exception != null) {
-            if (UnknownAccountException.class.isInstance(exception)) {
+            if (exception instanceof UnknownAccountException) {
                 System.out.println("账户不存在");
                 msg = "账户不存在或密码不正确";
-            } else if (IncorrectCredentialsException.class.isInstance(exception)) {
+            } else if (exception instanceof IncorrectCredentialsException) {
                 System.out.println("密码不正确");
                 msg = "账户不存在或密码不正确";
-//            } else if (IncorrectCaptchaException.class.isInstance(exception)) {
-//                System.out.println("验证码不正确");
-//                msg = "验证码不正确";
+            } else if (exception instanceof IncorrectCaptchaException) {
+                System.out.println("验证码不正确");
+                msg = "验证码不正确";
             } else {
                 System.out.println("其他异常");
                 msg = "其他异常";
